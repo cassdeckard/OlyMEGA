@@ -1,25 +1,32 @@
 # IC Chip Inventory Manifest
 
-Inventory derived from 56 microscope photographs taken on August 18, 2026. Quantities count physical packages visible in the photos; the magnified image on the microscope monitor is not counted as an additional package. Duplicate verified part numbers are consolidated across photos.
+Inventory derived from 56 microscope photographs taken on August 18, 2026.
+Quantities count physical packages visible in the photos; the magnified image
+on the microscope monitor is not counted as an additional package. Duplicate
+verified part numbers are consolidated across photos.
 
 ## Summary
 
 - **106 IC packages pictured**
 - **105 IC packages assigned** to a part number: 104 confirmed and 1 tentative
 - **1 IC package remains unidentified**
-- **2 IC packages need manual review**: the tentative identification and the unidentified package
-- **2 identified signal relays** are retained because they appear among the photographed parts
+- **2 IC packages need manual review**: the tentative identification and the
+  unidentified package
+- **2 identified signal relays** are retained because they appear among the
+  photographed parts
 - **45 consolidated inventory rows**
 - **56 source photos accounted for**
 
-The companion [`inventory.csv`](inventory.csv) contains the exact markings, package details, source-photo filenames, confidence levels, and trace/date-code notes.
+The companion [`inventory.csv`](inventory.csv) contains the exact markings,
+package details, source-photo filenames, confidence levels, and trace/date-code
+notes.
 
 ## Consolidated inventory
 
 | Part number | Qty. | Manufacturer | Category | Brief description | Datasheet |
-|---|---:|---|---|---|---|
+| --- | ---: | --- | --- | --- | --- |
 | LM339N | 1 | Fairchild | Analog comparator | Quad open-collector voltage comparator | [Successor PDF](https://www.onsemi.com/pdf/datasheet/lm339a-d.pdf) |
-| 74HC4052N | 1 | NXP | Analog switch | Dual 4-channel analog multiplexer/demultiplexer | [PDF](https://assets.nexperia.com/documents/data-sheet/74HC_HCT4052.pdf) |
+| 74HC4052N | 1 | NXP | Analog switch | Dual 4-channel analog multiplexer/de-multiplexer | [PDF](https://assets.nexperia.com/documents/data-sheet/74HC_HCT4052.pdf) |
 | LM386N-1 | 1 | National Semiconductor / TI | Audio amplifier | Low-voltage mono audio power amplifier | [PDF](https://www.ti.com/lit/ds/symlink/lm386.pdf) |
 | HD74LS373P | 1 | Hitachi / Renesas | Bus/register logic | Octal transparent D latch with 3-state outputs | [Renesas](https://www.renesas.com/en/document/dst/hd74ls373-datasheet) |
 | CD4012BE | 1 | Texas Instruments | CMOS logic | Dual 4-input NAND gate | [PDF](https://www.ti.com/lit/ds/symlink/cd4012b.pdf) |
@@ -65,15 +72,20 @@ The companion [`inventory.csv`](inventory.csv) contains the exact markings, pack
 
 ## Needs manual review
 
-These two packages require physical confirmation. One has a tentative user-supplied identification; the other remains unidentified.
+These two packages require physical confirmation. One has a tentative
+user-supplied identification; the other remains unidentified.
 
 | Working ID | Qty. | Visible marking | Likely identity | Source photo | Recommended follow-up |
-|---|---:|---|---|---|---|
+| --- | ---: | --- | --- | --- | --- |
 | SN74LS47N-TENTATIVE | 1 | None legible | Best guess: `SN74LS47N` | `IMG_20260818_201029.jpg` | Confirm that the physical package has 16 pins and verify its marking or circuit role. |
 | UNRESOLVED-DIP8-A | 1 | None legible | Unknown DIP-8 | `IMG_20260818_201143.jpg` | Retry with oblique light and adjusted exposure. |
 
 ## Confidence and usage notes
 
-- Counts marked **medium** in the CSV should be manually checked where packages overlap or appear near the edge of the photo.
-- A datasheet labeled **equivalent**, **compatible**, **successor**, or **archived** is not a current document hosted by the exact original manufacturer. Verify electrical limits before substituting legacy parts.
-- The inventory identifies markings and pictured quantities only; it does not establish whether the parts are functional.
+- Counts marked **medium** in the CSV should be manually checked where packages
+  overlap or appear near the edge of the photo.
+- A datasheet labeled **equivalent**, **compatible**, **successor**, or
+  **archived** is not a current document hosted by the exact original
+  manufacturer. Verify electrical limits before substituting legacy parts.
+- The inventory identifies markings and pictured quantities only; it does not
+  establish whether the parts are functional.
