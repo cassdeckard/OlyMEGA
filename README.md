@@ -24,6 +24,7 @@ manual review.
 | --- | --- |
 | [`INVENTORY.md`](INVENTORY.md) | Human-readable inventory with quantities, descriptions, and datasheet links |
 | [`inventory.csv`](inventory.csv) | Detailed machine-readable inventory, including markings, packages, source photos, confidence, and notes |
+| [`cass/`](cass/README.md) | Audio rack and restoration project plans |
 | `.reference/` | Source microscope photos used for inventory audits |
 
 ## Inventory conventions
