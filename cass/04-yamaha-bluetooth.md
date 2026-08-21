@@ -6,7 +6,7 @@
   - Receiver cover removed for access.
   - AC-input harness disconnected from the board before modification work.
     - Reference:
-      `[ac-input-harness-disconnected.jpg](../yamaha-internals/ac-input-harness-disconnected.jpg)`
+      `[ac-input-harness-disconnected.jpg](yamaha-internals/ac-input-harness-disconnected.jpg)`
   - Keep the receiver unplugged while open.
   - Verify that stored voltages have discharged before touching circuitry.
   - Photograph and label every disconnected harness before further
@@ -25,9 +25,9 @@
     - Prefer antistatic bags over ordinary plastic when available.
     - Protect exposed ribbon contacts from fingerprints, dirt, and impact.
     - References:
-      - [Thin ribbon disconnected from terminal board](../yamaha-internals/thin-ribbon-disconnected-from-av-board.jpg)
-      - [Removed AV terminal board](../yamaha-internals/removed-av-terminal-board.jpg)
-      - [Boards bagged and moved aside](../yamaha-internals/av-boards-bagged-and-moved-aside.jpg)
+      - [Thin ribbon disconnected from terminal board](yamaha-internals/thin-ribbon-disconnected-from-av-board.jpg)
+      - [Removed AV terminal board](yamaha-internals/removed-av-terminal-board.jpg)
+      - [Boards bagged and moved aside](yamaha-internals/av-boards-bagged-and-moved-aside.jpg)
   - *Rear Analog RCA Identification:*
     - Use the Yamaha HTR-5450 rear-panel diagram to identify the bottom row
       of stereo RCA pairs.
@@ -53,8 +53,8 @@
         and ground connections at the intended board pads.
       - Do not rely on physical position alone.
     - References:
-      - [Blurry exterior reference](../yamaha-internals/rear-analog-rca-input-labels-blurry.jpg)
-      - [Interior terminal-row reference](../yamaha-internals/av-boards-bagged-and-moved-aside.jpg)
+      - [Blurry exterior reference](yamaha-internals/rear-analog-rca-input-labels-blurry.jpg)
+      - [Interior terminal-row reference](yamaha-internals/av-boards-bagged-and-moved-aside.jpg)
       - [Yamaha HTR-5450 owner's manual](https://www.manualsbase.com/manual/434976/stereo_system/yamaha/htr-5450/)
   - *Interior Dust Cleaning:*
     - Clean the receiver before soldering or reassembly.
@@ -92,8 +92,8 @@
     - Mirror the position and orientation of the intact pad on the opposite
       side.
     - References:
-      - [Detached pad](../yamaha-internals/detached-chassis-damping-pad.jpg)
-      - [Intact opposite-side pad](../yamaha-internals/intact-chassis-damping-pad-location.jpg)
+      - [Detached pad](yamaha-internals/detached-chassis-damping-pad.jpg)
+      - [Intact opposite-side pad](yamaha-internals/intact-chassis-damping-pad-location.jpg)
   - *Surface Preparation:*
     - Remove loose old adhesive without cutting or stretching the pad.
     - Clean the chassis bonding area with isopropyl alcohol.

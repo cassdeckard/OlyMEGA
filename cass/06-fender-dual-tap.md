@@ -10,13 +10,13 @@ Looper.
   - On the bench with the Clone Looper:
 
     <img
-      src="../fender-footswitch/after-connected-to-clone-looper.jpg"
+      src="fender-footswitch/after-connected-to-clone-looper.jpg"
       alt="Dual-tap box wired to the Clone Looper CTR and EXP jacks"
       width="900">
   - PETG end cap and second Switchcraft jack:
 
     <img
-      src="../fender-footswitch/after-printed-side-and-second-jack.jpg"
+      src="fender-footswitch/after-printed-side-and-second-jack.jpg"
       alt="Trimmed PETG end cap with a Switchcraft mono jack"
       width="900">
 
@@ -36,14 +36,14 @@ Looper.
   - Outside, still wearing the Fender faceplate:
 
     <img
-      src="../fender-footswitch/original-enclosure-channel-select-chorus.png"
+      src="fender-footswitch/original-enclosure-channel-select-chorus.png"
       alt="Original Fender CHANNEL SELECT and CHORUS footswitch"
       width="900">
   - Inside after the SLDT switches were desoldered. `J1` is still on the
     board. The two Mexico-marked switches are sitting loose:
 
     <img
-      src="../fender-footswitch/pcb-after-desoldering-switches.png"
+      src="fender-footswitch/pcb-after-desoldering-switches.png"
       alt="Factory PCB after desoldering the SLDT footswitches"
       width="900">
 

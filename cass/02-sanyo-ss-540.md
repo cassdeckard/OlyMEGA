@@ -25,7 +25,7 @@ metalized film networks.
   - *Crossover Boards:*
     - PETG filament for two 3.5" × 4.5" printed boards
     - OpenSCAD source:
-      [`sanyo-crossover/ss540_crossover_board.scad`](../sanyo-crossover/ss540_crossover_board.scad)
+      [`sanyo-crossover/ss540_crossover_board.scad`](sanyo-crossover/ss540_crossover_board.scad)
   - *Tweeter Capacitors:*
     - 2 × 3.3µF Dayton Audio PMPC film capacitors
   - *Mid-Range Capacitors:*
@@ -161,7 +161,7 @@ conductor. Onboard nets are 18 AWG solid copper or capacitor leads on the
 underside. Flying leads through the 4 mm holes are 16 AWG stranded.
 
 - **Source file:**
-  - [`sanyo-crossover/ss540_crossover_board.scad`](../sanyo-crossover/ss540_crossover_board.scad)
+  - [`sanyo-crossover/ss540_crossover_board.scad`](sanyo-crossover/ss540_crossover_board.scad)
   - Print **two** copies on the Bambu P1S in PETG.
 - **Board:**
   - 89 mm × 114 mm (3.5" × 4.5").
