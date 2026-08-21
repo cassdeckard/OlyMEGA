@@ -8,7 +8,8 @@
     - [🎚️ Pipeline 1B: Studio Tracking Gain Staging](#project-1-tracking)
 2. [Sanyo SS-540 Speaker Modification](#project-2)
   - [📦 Supply Chain & Inventory Status](#project-2-inventory)
-    - [📐 Project State & Architectural Roadmap](#project-2-roadmap)
+  - [📐 Project State & Architectural Roadmap](#project-2-roadmap)
+  - [🖨️ Printed Crossover Board](#project-2-crossover-board)
 3. [Custom Interconnect Cables Build](#project-3)
 4. [Stealth Internal Bluetooth Modification](#project-4)
   - [🧪 Extra Credit: Input-Selected Bluetooth Power](#project-4-extra-credit)
@@ -150,9 +151,14 @@ metalized film networks.
     - Two cabinets
     - Factory woofers, mid-range drivers, and tweeters
     - Factory wiring harnesses and terminal plates
+      - Round terminal cutout: 52 mm
+      - Mounting screws: 43.85 mm × 43.85 mm square
+    - 18 AWG solid-core copper for onboard crossover nets
 - **To Be Ordered:**
   - *Crossover Boards:*
-    - 2 × 3.5" x 5" pre-perforated crossover boards
+    - PETG filament for two 3.5" × 4.5" printed boards
+    - OpenSCAD source:
+      [`sanyo-crossover/ss540_crossover_board.scad`](sanyo-crossover/ss540_crossover_board.scad)
   - *Tweeter Capacitors:*
     - 2 × 3.3µF Dayton Audio PMPC film capacitors
   - *Mid-Range Capacitors:*
@@ -163,12 +169,18 @@ metalized film networks.
     - 1 lb Acousta-Fill nylon polyfill
     - 1/8" x 3/8" speaker gasketing tape
   - *Cabinet Hardware:*
-    - 2 × 2-15/16" gold binding-post terminal cups
+    - 2 × Parts Express 260-283 2-15/16" gold binding-post cups
+      - 2-15/16" (75 mm) is the flange, not the cabinet hole.
+      - Specified barrel cutout is 2" (50.8 mm).
+      - Factory hole is 52 mm, so the barrel fits without enlarging.
+      - Confirm the cup's four screw holes land on the 43.85 mm square.
   - *Driver Repair Supplies:*
-    - Black rubber cement
-      - Repair the left mid-range driver's aluminum center cone cap.
+    - Acid-free PVA (Elmer's Glue-All or equivalent)
+      - Reattach the left mid-range driver's painted paper dust cap.
   - *Internal Wiring:*
     - Audtek 16 AWG oxygen-free copper speaker wire
+      - Flying leads only: binding posts, drivers, board pass-throughs.
+      - Leftover 16 AWG lamp cord from Project 1 is an acceptable substitute.
 
 
 
@@ -183,10 +195,20 @@ metalized film networks.
     - Wiring harness
     - Terminal plate
 - **Mid-Range Driver Repair:**
-  - Repair the left mid-range driver's aluminum center cone cap.
-  - Use black rubber cement to restore and secure the damaged area.
+  - Left mid-range dust cap lifted along about two-thirds of its edge.
+  - The cap itself is intact.
+  - It is paper with metallic paint, not an aluminum dome.
+  - Reattach with a thin bead of acid-free PVA.
+    - Work the glue into the open seam.
+    - Prefer the back of the cone if the gap allows.
+    - Seat the cap and weight it until dry.
+    - Wipe squeeze-out before it skins.
+  - Do not use rubber cement or CA.
+    - Rubber cement was for a metal-to-paper joint.
+    - CA dries brittle and can tick.
 - **Crossover Filter Networks:**
-  - Rebuild the high-pass stages on two 3.5" x 5" pre-perforated boards.
+  - Rebuild the high-pass stages on two printed PETG boards.
+  - See [Printed Crossover Board](#project-2-crossover-board).
   - *Tweeter Path:*
     - Replace the original capacitor one-for-one.
     - Use one **3.3µF** Dayton Audio PMPC film capacitor.
@@ -235,10 +257,17 @@ metalized film networks.
   - *Compression Seals:*
     - Use 1/8" x 3/8" speaker gasketing tape.
     - Apply it beneath the driver basket rims.
-    - Seal around the new 2-15/16" gold binding-post terminal cups.
+    - Seal around the 2-15/16" gold binding-post cups.
+      - Do not enlarge the 52 mm factory hole.
+      - The 2" barrel is about 1.2 mm undersize; the gasket fills the gap.
 - **Internal Rewiring:**
   - Redo all structural point-to-point connections.
-  - Use Audtek 16 AWG oxygen-free copper speaker wire.
+  - *On the PETG board:*
+    - Use on-hand 18 AWG solid-core copper in the underside channels.
+    - Solid sits flat and does not flex once the board is mounted.
+  - *Off the board:*
+    - Use 16 AWG stranded to the binding posts and all three drivers.
+    - Do not run solid core to the woofer.
 
 ```unset
 --------------------------------------------------------------------------------
@@ -254,6 +283,57 @@ metalized film networks.
 [Negative Binding Post] <──────────── Common return from all three drivers
 --------------------------------------------------------------------------------
 ```
+
+<a id="project-2-crossover-board"></a>
+
+### 🖨️ Printed Crossover Board
+
+[↑ Back to top](#table-of-contents)
+
+Replace the factory fiber board with a PETG fixture. The plastic is not a
+conductor. Onboard nets are 18 AWG solid copper or capacitor leads on the
+underside. Flying leads through the 4 mm holes are 16 AWG stranded.
+
+- **Source file:**
+  - [`sanyo-crossover/ss540_crossover_board.scad`](sanyo-crossover/ss540_crossover_board.scad)
+  - Print **two** copies on the Bambu P1S in PETG.
+- **Board:**
+  - 89 mm × 114 mm (3.5" × 4.5").
+  - **6 mm** thick.
+  - 4.5 mm cannot hold 1.5 mm cradles and a 2.2 mm underside channel.
+  - Four 4.5 mm corner holes, 6 mm from each edge, for #8 wood screws.
+- **Layout, input edge to output edge:**
+  - Culver 1A-50 pocket.
+  - Tweeter 3.3µF cradle.
+  - Mid-range triplet: 2.2µF, 1.5µF, 1.0µF, with shared 3 mm walls.
+- **Capacitor cradles:**
+  - Inner length **26 mm** so 31 mm bodies can bend into the lead holes.
+  - Depth 1.5 mm.
+  - Inner widths 17 / 15 / 12 / 11 mm (1 mm over each body).
+  - 2.5 mm lead holes, 3.5 mm outboard of each cradle end.
+  - 3.5 mm × 1.5 mm zip-tie slots in the side walls.
+  - 2.5 mm holes are for capacitor leads only.
+- **Culver 1A-50 pocket (calipered):**
+  - Body **8.7 mm H × 10.25 mm W × 20.4 mm L**.
+  - Both connectors leave one **H × W** face.
+  - Pocket adds 0.6 mm clearance, 2.5 mm deep.
+  - Length across the board; connector face toward the wiring spine.
+  - 7 mm through-window at that face for soldering, not end-to-end lug holes.
+  - Ghost lugs in the `.scad` are placeholders; spacing is unmeasured.
+  - It is **1 A**, not 14 A or 1.4 A.
+- **Underside wiring:**
+  - 2.2 mm channel along the right spine, with crossbars at the lead rows.
+  - Lay 18 AWG solid in that channel as the copper buses.
+  - Solder capacitor leads and Culver lugs to those buses.
+  - 4 mm pass-throughs are for 16 AWG stranded input and driver leads.
+  - Splice stranded to solid on the underside; do not pull solid out to a
+    driver.
+- **Bambu Studio:**
+  - 4–5 wall loops.
+  - 30–40% gyroid or grid infill.
+  - 4–5 top and bottom layers.
+  - 0.2 mm layer height.
+  - Dry PETG before printing.
 
 ---
 
