@@ -6,6 +6,28 @@ Converted a leftover Fender two-button amp footswitch into a dual MXR Tap
 Tempo box. It now drives the **CTR** and **EXP** jacks on an MXR Clone
 Looper.
 
+
+<a id="project-6-inventory"></a>
+
+## 📦 Supply Chain & Inventory Status
+
+- **In Hand:**
+  - Finished dual-tap footswitch
+  - MXR Clone Looper
+  - Donor Fender CHANNEL SELECT / CHORUS enclosure
+    - Assembly P/N **0029972000**
+    - Flipped factory top plate
+    - Ribbed aluminum extrusion
+  - Two **SLST** momentary switches from the OlyMEGA scrap drawer
+  - Two Switchcraft mono TS jacks
+  - Trimmed clear-PETG end caps
+- **To Be Ordered:**
+  - SUNLU Easy PA nylon
+    - Optional reprint of the end caps.
+  - Printed faceplate overlay
+    - Later cosmetics pass over the bare flipped plate.
+
+
 - **Finished:**
   - On the bench with the Clone Looper:
 

@@ -1,8 +1,5 @@
 # 📌 PROJECT 5: PORTABLE BENCH SIGNAL AUDIO PROBE & TEST AMPLIFIER
 
-
-## Project Overview
-
 A low-power, battery-operated LM386 test amplifier for tracing audio through
 guitar pedals, synthesizers, preamps, and other low-voltage circuits. A
 DC-blocked probe feeds a volume control and LM386, allowing each stage of a
@@ -13,11 +10,14 @@ The battery creates an independent power supply, but the probe is **not
 galvanically isolated from the device under test** after its ground clip is
 connected.
 
-## Supply Chain & Inventory Status
+
+<a id="project-5-inventory"></a>
+
+## 📦 Supply Chain & Inventory Status
 
 - **In Hand:**
   - LM386N-1 from the IC inventory
-- **Basic Kit Parts Required:**
+- **To Be Ordered:**
   - *Input and Control:*
     - Insulated probe tip
     - Ground clip

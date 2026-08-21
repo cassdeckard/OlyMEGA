@@ -1,5 +1,33 @@
 # 📌 PROJECT 4: STEALTH INTERNAL BLUETOOTH MODIFICATION
 
+Internalizing the MH-M18 behind the Yamaha HTR-5450 faceplate. Power is
+switched AC into the hidden Nook 5V adapter, then into the module.
+
+
+<a id="project-4-inventory"></a>
+
+## 📦 Supply Chain & Inventory Status
+
+- **In Hand:**
+  - Yamaha HTR-5450 receiver
+  - MH-M18 lossless Bluetooth breakout
+  - 5V Nook AC adapter block
+  - SN74HC138N from the IC inventory
+    - Extra-credit input decoder only.
+- **To Be Ordered:**
+  - Normally-open momentary pushbutton
+    - MH-M18 `KEY` to module ground.
+  - 3M black weatherstrip adhesive or equivalent
+    - Reattach the loose chassis damping pad.
+  - *Extra credit only:*
+    - High-side P-channel MOSFET or 5V load switch
+    - Switches Nook +5V to MH-M18 `VCC`.
+- **Not required:**
+  - B0505S DC-DC isolator
+    - Dropped. The Nook wart already isolates 5V from mains.
+    - Amazon reviews that mention a B0505S are treating it as an
+      **or** with soldering, not a second isolator on top of a wart.
+
 
 - **Task:** Internalizing the MH-M18 module behind the Yamaha's front faceplate.
 - **Preparation Status:**
@@ -118,13 +146,24 @@
     - Hidden Nook 5V adapter block
     - MH-M18 VCC/GND input
   - The two-prong Nook adapter already isolates its 5V output from mains.
+    - That is the "own 5V rail / USB wart from spliced AC" step in MH-M18
+      write-ups. Do not steal 5V from a Yamaha rail.
+  - Solder `VCC` and `GND` to the module.
+    - Use a short, stout ground. Do not rely on header pins.
+    - Intermittent half-hole contact is the usual source of hash on these
+      boards.
   - Do not add the B0505S DC-DC isolator.
-    - It provides little additional isolation after the MH-M18 audio ground
-      connects to the Yamaha AUX ground.
-    - It can introduce unnecessary switching noise and regulation issues.
+    - Reviews that mention a B0505S-1W mean **solder everything or add
+      a B0505S**, not wart **and** B0505S.
+    - They used headers, heard ground noise, and offered the isolator as
+      a workaround. Soldering is the fix that matches this build.
+    - After MH-M18 audio ground bonds to Yamaha AUX ground, a B0505S
+      only floats the wart return. It does not isolate the audio path.
+    - It can add switching noise and regulation issues.
   - Connect the MH-M18 ground to the Yamaha AUX ground at one deliberate
     point.
-  - Add local supply filtering only if bench testing reveals noise.
+  - Add local supply filtering, or revisit a B0505S, only if bench
+    testing still shows hum after the soldered ground.
 - **Front-Panel KEY Control:**
   - Install a normally-open momentary pushbutton.
   - Wire the switch between:
