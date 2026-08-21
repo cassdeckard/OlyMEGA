@@ -16,36 +16,49 @@ connected.
 ## 📦 Supply Chain & Inventory Status
 
 - **In Hand:**
-  - LM386N-1 from the IC inventory
-- **To Be Ordered:**
-  - *Input and Control:*
-    - Insulated probe tip
-    - Ground clip
-    - 10kΩ input protection resistor (R2)
-    - 1µF film capacitor (C2), preferred
-      - A bipolar capacitor is also suitable.
-      - A 10µF electrolytic may be used with polarity precautions.
-    - 100kΩ audio-taper volume potentiometer (POT1), preferred
-      - An A10k pot works for low-impedance line-level circuits.
-      - A100k reduces loading on guitar pedals and sensitive nodes.
-  - *Gain Control:*
-    - 10µF / 25V electrolytic capacitor (C1)
-    - SPST gain switch
-  - *Output and Stability:*
-    - 0.05µF or 0.1µF ceramic capacitor (C3)
-    - 10Ω / 0.25W resistor (R1)
-    - 220µF / 25V electrolytic capacitor (C4)
-    - Known-good 8Ω test speaker
-  - *Power Supply:*
-    - 9V battery snap
-    - 9V battery
-    - Power switch
-    - 100µF / 25V electrolytic capacitor (C5)
-    - 100nF ceramic capacitor (C6)
-  - *Optional Noise Reduction:*
-    - 10µF / 25V electrolytic bypass capacitor (C7)
-      - Positive lead to Pin 7
-      - Negative lead to ground
+  - 1 × LM386N-1
+    - One of three in the IC inventory.
+    - Marked `PR35AU / LM / 386N-1` (`PR35AU` is a lot code).
+  - 3 × 10kΩ resistors
+    - Two beige, one blue.
+    - All read `10` on the GDT-11 20kΩ range (that is 10kΩ, not 10Ω).
+    - R2 plus two spare.
+  - 4 × 100nF (`104`) ceramic capacitors
+    - C3, C6, two spare.
+  - 5 × 10µF / 50V electrolytic capacitors
+    - C1, C2, one in the C4 bank, optional C7, one spare.
+    - C2 positive toward the probe tip on +DC nodes.
+  - 2 × 100µF / 50V electrolytic capacitors
+    - One is C5. Keep it on the 9V rail.
+    - One seeds C4. Do not put both on C4.
+    - C4 bank: 100 + 47 + 33 + 22 + 10 + 4.7 + 3.3 = 220µF.
+    - All positives to Pin 5. All negatives to the speaker.
+  - 1 × 47µF / 25V electrolytic capacitor (C4 parallel)
+  - 1 × 33µF / 25V electrolytic capacitor (C4 parallel)
+  - 1 × 22µF / 25V electrolytic capacitor (C4 parallel)
+  - 1 × 4.7µF / 50V electrolytic capacitor (C4 parallel)
+  - 1 × 3.3µF / 50V electrolytic capacitor (C4 parallel)
+  - 1 × ALPHA A1M audio-taper potentiometer
+    - 1MΩ. POT1.
+    - Parallel a 100kΩ across high side to ground (~91kΩ).
+    - That matches the intended A100k load on the LM386.
+  - 1 × 4-pin momentary pushbutton
+    - Two independent NO pairs.
+    - Spare for this build if the latching rockers are used.
+  - 1 × yellow LED
+  - 1 × 1W 8Ω speaker
+  - 9V batteries
+- **To Be Acquired:**
+  - Insulated probe tip
+  - Ground clip
+  - 9V battery snap
+  - 1 × 10Ω / 0.25W resistor (R1)
+  - 1 × 100kΩ resistor (POT1 pad)
+    - Across POT1 high side to ground.
+  - 2 × latching rocker switches
+    - Power, and gain 20 / 200.
+  - 1 × 220µF electrolytic capacitor (C4, optional)
+    - Single-part substitute for the 220µF parallel bank.
 
 ## Functional Signal and Power Map
 
@@ -85,17 +98,17 @@ connected.
                                        ▼
                                   [System GND]
 
- [Pin 1] ──> [SPST Gain Switch] ──> [+ C1 10µF −] ──> [Pin 8]
+ [Pin 1] ──> [Latching Gain] ──> [+ C1 10µF −] ──> [Pin 8]
 --------------------------------------------------------------------------------
 ```
 
 ## LM386 Pin Map
 
 - **Pin 1 — Gain:**
-  - Connect to the positive lead of C1 through the gain switch.
-  - Leave disconnected when the switch is open.
-    - Open switch: default gain of 20.
-    - Closed switch: gain of 200.
+  - Connect to the positive lead of C1 through the latching gain rocker.
+  - Leave disconnected when the switch is off.
+    - Off: default gain of 20.
+    - On: gain of 200.
 - **Pin 2 — Inverting Input:**
   - Connect directly to system ground.
 - **Pin 3 — Non-Inverting Input:**
@@ -105,6 +118,8 @@ connected.
 - **Pin 5 — Output:**
   - Split into two parallel branches:
     - Main output through C4 to the test speaker.
+      - C4 is the 220µF bank
+        (100 + 47 + 33 + 22 + 10 + 4.7 + 3.3).
     - Zobel network through C3 and R1 to ground.
 - **Pin 6 — Supply Voltage:**
   - Connect to the switched positive 9V rail.
@@ -113,7 +128,7 @@ connected.
   - Optionally connect C7 from Pin 7 to ground to reduce noise.
 - **Pin 8 — Gain:**
   - Connect to the negative lead of C1.
-  - Leave disconnected when the gain switch is open.
+  - Leave disconnected when the gain switch is off.
 
 ## Peripheral Node Map
 
@@ -124,18 +139,22 @@ connected.
   - If C2 is a polarized electrolytic:
     - Orient its positive lead toward the probe tip when testing circuits
       whose signal rides on a positive DC bias.
-    - Use a film or bipolar capacitor when polarity is uncertain.
+    - Measure the node DC first if polarity is unknown.
+    - Do not leave it reverse-biased on a negative rail.
 - **Volume Control:**
   - Connect the POT1 high side to C2.
   - Connect the POT1 center wiper to LM386 Pin 3.
   - Connect the POT1 low side to system ground.
+  - POT1 is the ALPHA A1M (1MΩ audio taper).
+  - Parallel 100kΩ from the POT1 high side to ground.
 - **Probe Ground:**
   - Connect the ground clip to the circuit's system ground.
   - Do not clip it to an unknown node before verifying that node with a
     multimeter.
 - **Main Output:**
-  - Connect LM386 Pin 5 to the positive lead of C4.
-  - Connect the negative lead of C4 to the test speaker's positive terminal.
+  - Connect LM386 Pin 5 to the positive leads of the C4 bank.
+  - Connect the negative leads of the C4 bank to the test speaker's
+    positive terminal.
   - Connect the test speaker's negative terminal to system ground.
 - **Zobel Network:**
   - Connect LM386 Pin 5 to one side of C3.
@@ -153,9 +172,11 @@ connected.
 1. Build the 9V power rails, switch, C5, and C6.
 2. Install the LM386 and connect Pins 2, 4, and 6.
 3. Build the C4 speaker-output branch.
+   - Parallel 100 + 47 + 33 + 22 + 10 + 4.7 + 3.3µF (220µF).
+   - Keep the other 100µF for C5.
 4. Add the C3/R1 Zobel branch.
 5. Build the volume-control and probe-input path.
-6. Test at the default gain of 20 with the gain switch open.
+6. Test at the default gain of 20 with the gain rocker off.
 7. Add the switchable C1 gain branch only after the base circuit is stable.
 8. Add optional Pin 7 bypass capacitor C7 if residual noise is excessive.
 9. Transfer the verified circuit into an insulated portable enclosure.
@@ -191,8 +212,8 @@ connected.
 - **Electrolytic Capacitor Polarity:**
   - C1 positive lead faces Pin 1.
   - C1 negative lead faces Pin 8.
-  - C4 positive lead faces LM386 Pin 5.
-  - C4 negative lead faces the test speaker.
+  - C4 positives face LM386 Pin 5.
+  - C4 negatives face the test speaker.
   - C5 positive lead faces the 9V rail.
   - C5 negative lead faces system ground.
   - Optional C7 positive lead faces Pin 7.

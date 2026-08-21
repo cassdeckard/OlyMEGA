@@ -7,9 +7,9 @@ package details, and datasheet links.
 
 ## Inventory snapshot
 
-- 106 IC packages pictured
-- 105 packages assigned to a part number
-- 104 confirmed identifications
+- 108 IC packages pictured
+- 107 packages assigned to a part number
+- 106 confirmed identifications
 - 1 tentative identification
 - 1 unidentified package
 - 2 signal relays

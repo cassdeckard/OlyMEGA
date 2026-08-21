@@ -18,7 +18,7 @@ linked datasheets in the inventory before wiring legacy parts.
 
 | IC | Quantity | Useful audio role |
 | --- | ---: | --- |
-| LM386N-1 | 1 | Low-voltage speaker amplifier |
+| LM386N-1 | 3 | Low-voltage speaker amplifier |
 | NE555N | 2 | Audio oscillators, modulation, and timing |
 | LM358N | 2 | Single-supply preamps, filters, mixers, and oscillators |
 | µPC358C | 2 | LM358-like dual op-amp experiments |

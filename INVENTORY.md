@@ -7,8 +7,8 @@ verified part numbers are consolidated across photos.
 
 ## Summary
 
-- **106 IC packages pictured**
-- **105 IC packages assigned** to a part number: 104 confirmed and 1 tentative
+- **108 IC packages pictured**
+- **107 IC packages assigned** to a part number: 106 confirmed and 1 tentative
 - **1 IC package remains unidentified**
 - **2 IC packages need manual review**: the tentative identification and the
   unidentified package
@@ -27,7 +27,7 @@ notes.
 | --- | ---: | --- | --- | --- | --- |
 | LM339N | 1 | Fairchild | Analog comparator | Quad open-collector voltage comparator | [Successor PDF](https://www.onsemi.com/pdf/datasheet/lm339a-d.pdf) |
 | 74HC4052N | 1 | NXP | Analog switch | Dual 4-channel analog multiplexer/de-multiplexer | [PDF](https://assets.nexperia.com/documents/data-sheet/74HC_HCT4052.pdf) |
-| LM386N-1 | 1 | National Semiconductor / TI | Audio amplifier | Low-voltage mono audio power amplifier | [PDF](https://www.ti.com/lit/ds/symlink/lm386.pdf) |
+| LM386N-1 | 3 | National Semiconductor / TI | Audio amplifier | Low-voltage mono audio power amplifier | [PDF](https://www.ti.com/lit/ds/symlink/lm386.pdf) |
 | HD74LS373P | 1 | Hitachi / Renesas | Bus/register logic | Octal transparent D latch with 3-state outputs | [Renesas](https://www.renesas.com/en/document/dst/hd74ls373-datasheet) |
 | CD4012BE | 1 | Texas Instruments | CMOS logic | Dual 4-input NAND gate | [PDF](https://www.ti.com/lit/ds/symlink/cd4012b.pdf) |
 | CD4030BE | 1 | Harris Semiconductor | CMOS logic | Quad 2-input XOR gate | [Equivalent PDF](https://www.ti.com/lit/ds/symlink/cd4030b.pdf) |
@@ -82,6 +82,8 @@ user-supplied identification; the other remains unidentified.
 
 ## Confidence and usage notes
 
+- The LM386N-1 quantity is a physical count of **3**, not the single
+  close-up in `IMG_20260818_200705.jpg`.
 - Counts marked **medium** in the CSV should be manually checked where packages
   overlap or appear near the edge of the photo.
 - A datasheet labeled **equivalent**, **compatible**, **successor**, or
