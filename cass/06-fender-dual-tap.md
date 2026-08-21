@@ -6,6 +6,12 @@ Converted a leftover Fender two-button amp footswitch into a dual MXR Tap
 Tempo box. It now drives the **CTR** and **EXP** jacks on an MXR Clone
 Looper.
 
+- **Finished:**
+  - [On the bench with the Clone Looper](
+    ../fender-footswitch/after-connected-to-clone-looper.jpg)
+  - [PETG end cap and second Switchcraft jack](
+    ../fender-footswitch/after-printed-side-and-second-jack.jpg)
+
 <a id="project-6-original"></a>
 
 ## Original Hardware
@@ -53,9 +59,8 @@ Looper.
   - Each SLST is a normally-open momentary.
   - Tip to one switch lug, sleeve to the other.
   - No shared PCB; each jack is a separate cable to the looper.
-- **In use:**
-  - [Connected to the Clone Looper CTR and EXP jacks](
-    ../fender-footswitch/after-connected-to-clone-looper.jpg)
+  - In the finished photo, the left jack of the box goes to **CTR**.
+  - The right jack goes to **EXP**.
 
 ```unset
 --------------------------------------------------------------------------------
@@ -74,28 +79,28 @@ Looper.
 - **Top plate:**
   - The original Fender plate is flipped, graphics facing inward.
   - Bare metal is the current face.
-    - A white sticker went on, then came back off.
+    - A white sticker went on during the build and was later removed.
   - Two square LED windows from the factory light pipes are unused.
   - A printed overlay is a later cosmetics pass.
-- **Side panels:**
-  - Modeled after the original nylon (or nylon-like) plastic sides.
-  - Extra hole in the **left** side for the second mono jack.
+- **End caps:**
+  - Replaced the original nylon (or nylon-like) plastic ends.
+  - The ribbed aluminum extrusion is still the factory shell.
+  - Extra jack hole in one PETG end so each Switchcraft jack has its own
+    face.
   - Printed in clear PETG on a holographic plate.
     - PETG did not pick up the holographic texture.
     - The bases printed, but the raised walls spaghetti'd.
     - Those walls were trimmed off so the box would close.
-  - [Trimmed PETG side with the second Switchcraft jack](
-    ../fender-footswitch/after-printed-side-and-second-jack.jpg)
   - Considering a reprint in **SUNLU Easy PA** nylon.
-    - Closer to the original side material than PETG.
+    - Closer to the original end-cap material than PETG.
     - Skip the holographic plate for that print.
 
 <a id="project-6-follow-up"></a>
 
 ## Follow-Up
 
-- Reprint the side panels in Easy PA if the trimmed PETG sides bother you.
-- Add the side-panel source (OpenSCAD or equivalent) to this repo when it
+- Reprint the end caps in Easy PA if the trimmed PETG bothers you.
+- Add the end-cap source (OpenSCAD or equivalent) to this repo when it
   is handy.
 - Design a stick-on printed faceplate for the flipped plate.
   - Cover or fill the unused LED windows if the overlay allows it.
