@@ -21,14 +21,14 @@ pipeline, and adds stealth wireless streaming functionality.
   - KabelDirekt Toslink Optical Cable
   - KabelDirekt HDMI 2.0 Audio Extractor
   - MH-M18 Lossless Bluetooth Breakout Board
+  - Highwings 20 ft HDMI cable (`B095W9T9QQ`)
+    - Arrived (Amazon, ordered 21 Aug 2026).
+    - Extractor video out to projector.
+    - Marketed as 48 Gbps / HDMI 2.1; this path is HDMI 2.0 18 Gbps.
 - **Ordered with Project 2 (awaiting shipment):**
   - Audtek 16 AWG OFC speaker wire
     - Extra stock beyond the lamp cord already in hand.
     - Usable for Sanyo monitor runs if the lamp cord is short.
-- **Ordered (Amazon, 21 Aug 2026):**
-  - Highwings 20 ft HDMI cable (`B095W9T9QQ`)
-    - Extractor video out to projector.
-    - Marketed as 48 Gbps / HDMI 2.1; this path is HDMI 2.0 18 Gbps.
 
 
 <a id="project-1-hdmi"></a>

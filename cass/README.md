@@ -20,6 +20,7 @@ mod, bench signal probe, and a completed Fender dual-tap footswitch.
     - [🧪 Extra Credit: Input-Selected Bluetooth Power](04-yamaha-bluetooth.md#project-4-extra-credit)
 5. [Portable Bench Signal Audio Probe & Test Amplifier](05-bench-probe.md)
     - [📦 Supply Chain & Inventory Status](05-bench-probe.md#project-5-inventory)
+    - [⚡ Electrolytic Polarity](05-bench-probe.md#project-5-ecap-polarity)
 6. [Fender Dual Tap Tempo Footswitch](06-fender-dual-tap.md)
     - [📦 Supply Chain & Inventory Status](06-fender-dual-tap.md#project-6-inventory)
     - [Original Hardware](06-fender-dual-tap.md#project-6-original)

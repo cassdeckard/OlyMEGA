@@ -30,7 +30,7 @@ connected.
     - C3, C6, two spare.
   - 5 × 10µF / 50V electrolytic capacitors
     - C1, C2, optional C7, two spare.
-    - C2 positive toward the probe tip on +DC nodes.
+    - C2 as built: + toward the probe / R2. − toward yellow POT-IN.
   - 2 × 100µF / 50V electrolytic capacitors
     - One is C5 on **switched VCC** (L2 / Pin 6), not unswitched BAT+.
     - The other is spare. It is not C4.
@@ -48,39 +48,46 @@ connected.
     - Spare. Do not use as POT1 without a 100k pad.
   - 1 × 4-pin momentary pushbutton
     - Two independent NO pairs.
-    - Spare. Power and gain are on the DPDT rocker.
+    - One pair is the yellow lamp enable. The other pair is spare.
+    - Power and gain stay on the DPDT rocker.
   - 1 × DPDT ON-OFF-ON rocker
     - 6 terminals. 6 A / 125 VAC (fine at 9 V).
     - Left / power = **ON | OFF | ON** side.
     - Right / gain = **1 | 2 | 3** side.
     - Center is OFF (no power).
-  - 1 × yellow LED (BAT+ lamp, 10k)
+  - 1 × yellow LED
+    - BAT+ lamp. 10k series.
+    - On only while the momentary is held, and only if BAT+ is live.
   - 1 × red LED (VCC lamp, 10k)
+    - On with switched VCC (either rocker ON).
     - Do not confuse the red LED with the red BAT+ wire.
   - 1 × 1W 8Ω speaker
   - 9V batteries
-    - Usable at home once the snap arrives.
-- **Breadboard at OlyMEGA (verified):**
+    - Home supply now. Not the Dr. Meter.
+  - Insulated probe tip
+    - Arrived (Amazon, ordered 21 Aug 2026).
+  - Ground clip
+    - Arrived (Amazon, ordered 21 Aug 2026).
+  - 9V battery snap
+    - Arrived (Amazon, ordered 21 Aug 2026).
+    - Same cart as the Project 1 20 ft HDMI cable.
+- **Now at home:**
+  - Analog path continues on the breadboard from a 9V battery.
+  - Do not parallel a second 9V or a bench supply with that pack.
+  - The battery floats until the ground clip is attached.
+- **Breadboard at OlyMEGA (verified earlier):**
   - Archer Universal Breadboard with GND and two power posts.
     - One power post is +9 V. Leave the second unused.
   - Space probe tip, ground clip, and Dr. Meter
-    - Stand-in for the Amazon tip, clip, and 9V snap.
+    - Used for first bring-up at the space only.
     - Dr. Meter: **9.0 V**, current-limit **~200 mA** first power-up.
-    - Raise to **~500 mA** only if it current-limits when loud.
-    - Do not connect a 9V battery at the same time.
+    - Do not connect a 9V battery at the same time as the Dr. Meter.
     - Leave space tools on the bench.
 - **Ordered with Project 2 (awaiting shipment):**
   - Scrap 16 AWG speaker wire
     - Optional flying leads for the 1W 8Ω speaker.
   - Gasketing tape leftover
     - Optional if the probe speaker is mounted in an enclosure.
-- **Ordered (Amazon, 21 Aug 2026):**
-  - Insulated probe tip
-  - Ground clip
-  - 9V battery snap
-    - Same cart as the Project 1 20 ft HDMI cable.
-    - Take-home portable kit only.
-    - Not required to bring the circuit up at the space.
 - **To Be Acquired:**
   - None for the analog circuit.
   - Optional later: 3PDT if a dedicated gain-200 lamp is wanted.
@@ -93,7 +100,7 @@ connected.
 
  [Ground Clip] ───────────────────────────────────────────> [System GND]
 
-                                 [9V / Dr Meter]
+                                 [9V battery]
                                        │
                               [ON-OFF-ON power pole]
                                        │
@@ -160,19 +167,77 @@ connected.
   - Connect C1− to Pin 8 always.
   - C1+ reaches Pin 1 only on the gain-200 throw.
 
+
+<a id="project-5-ecap-polarity"></a>
+
+## ⚡ Electrolytic Polarity (as built)
+
+The stripe on the can is the **minus** lead. Re-fit each cap in this
+orientation. C3 and C6 are ceramics. They have no polarity.
+
+An electrolytic is a one-way DC part that still passes audio. The +
+lead must sit at the higher DC voltage. The − lead sits at the lower
+DC (often ground). Reverse DC can vent or short the cap. Audio is AC
+around that DC, so once the cap is biased the right way it blocks DC
+and lets the signal through.
+
+```unset
+--------------------------------------------------------------------------------
+ C2  10µF   probe / R2────────────────────(+) C2 (−)────────────── yellow POT-IN
+ C1  10µF   white / R1────────────────────(+) C1 (−)────────────────────── Pin 8
+ C4 220µF   Pin 5─────────────────────────(+) C4 (−)────────────────── speaker +
+ C5 100µF   VCC / L2──────────────────────(+) C5 (−)──────────────────────── GND
+ C7  10µF   Pin 7─────────────────────────(+) C7 (−)───────────── GND (optional)
+--------------------------------------------------------------------------------
+```
+
+- **C2 (input DC block, 10µF / 50V):**
+  - ＋ to R2 (the 10k) and the probe tip.
+  - − to yellow POT-IN (POT1 high side).
+  - The pot is ground-referenced, so POT-IN sits near 0 V DC.
+  - A pedal or synth node often has positive bias.
+  - ＋ faces the probe so that bias does not reverse the cap.
+  - Do not leave C2 reverse-biased on a negative rail.
+- **C1 (gain 200, 10µF / 50V):**
+  - ＋ to white / rocker R1 (C1+).
+  - − to Pin 8.
+  - C1+ reaches Pin 1 only on the gain-200 throw.
+  - The datasheet orients this cap + toward Pin 1, − toward Pin 8.
+  - Pin 1 is the more positive side of that pair.
+- **C4 (output DC block, 220µF / 50V):**
+  - ＋ to Pin 5.
+  - − to speaker +.
+  - Speaker − goes to GND. That is not C4−.
+  - Pin 5 rests near half the supply (~4.5 V at 9 V).
+  - After C4 charges, speaker + is ~0 V DC.
+  - ＋ faces Pin 5 so the half-supply offset does not hit the coil
+    or reverse the cap.
+- **C5 (bulk on switched VCC, 100µF / 50V):**
+  - ＋ to VCC / L2 / Pin 6.
+  - − to GND.
+  - Not on unswitched BAT+.
+  - This is a rail cap, not a signal cap.
+  - ＋ on the 9 V rail, − on ground. No other orientation is valid.
+- **C7 (bypass, 10µF / 50V, optional):**
+  - ＋ to Pin 7.
+  - − to GND.
+  - Leave it off unless hiss is excessive.
+  - Hiss is the grainy rush with POT1 down, not 60 Hz hum.
+  - More worth a try on the 9V pack than it was on the Dr. Meter.
+  - Pin 7 is a positive DC bypass node inside the LM386.
+  - Same rule as C5: + on the positive node, − on ground.
+
 ## Peripheral Node Map
 
 - **Probe Input:**
   - Connect the insulated probe tip to R2.
-  - Connect R2 to C2.
-  - Connect C2 to the high side of POT1.
-  - If C2 is a polarized electrolytic:
-    - Orient its positive lead toward the probe tip when testing circuits
-      whose signal rides on a positive DC bias.
-    - Measure the node DC first if polarity is unknown.
-    - Do not leave it reverse-biased on a negative rail.
+  - Connect R2 to C2+.
+  - Connect C2− to the high side of POT1 (yellow POT-IN).
+  - C2+ faces the probe / R2. C2− faces the pot.
+  - Measure the node DC first if polarity of the DUT is unknown.
+  - Do not leave C2 reverse-biased on a negative rail.
 - **Volume Control:**
-  - Connect the POT1 high side to C2.
+  - Connect the POT1 high side to C2− (yellow POT-IN).
   - Connect the POT1 center wiper to LM386 Pin 3.
   - Connect the POT1 low side to system ground.
   - POT1 is the A10k audio taper.
@@ -201,8 +266,12 @@ connected.
   - Red wire = BAT+ (some orange/clear shrink; trust the conductor).
   - Orange wire = VCC. Green = R2 / Pin 1. White = R1 / C1+.
 - **Power lamps:**
-  - Yellow: BAT+ → 10k → yellow LED → GND. On with the supply.
-  - Red: VCC → 10k → red LED → GND. On in either rocker ON.
+  - Yellow: BAT+ → momentary NO → 10k → yellow LED → GND.
+    - On only while the button is held and BAT+ is live.
+    - Independent of the rocker. This is a battery/supply check, not
+      “amp on.”
+  - Red: VCC → 10k → red LED → GND.
+    - On in either rocker ON.
 - **Probe Ground:**
   - Connect the ground clip to the DUT ground (device under test).
   - Mono TS: probe tip → tip, clip → sleeve.
@@ -222,15 +291,15 @@ connected.
   - Install C5 on **switched VCC**:
     - Positive lead to L2 / Pin 6.
     - Negative lead to ground.
-    - Skipping C5 is easy to miss. The circuit still runs on a stiff
-      bench supply; it matters more on a 9V battery.
+    - Do not skip C5. The home 9V pack needs this reservoir.
   - Install C6 directly between Pins 6 and 4.
     - Keep its leads as short as possible.
 
 ## Assembly Sequence
 
-Analog path is verified on the Archer breadboard at OlyMEGA. Enclosure
-and Amazon tip / clip / snap are the portable take-home kit.
+Analog path was first verified at OlyMEGA on the Dr. Meter. Home work
+is on a 9V battery. The Amazon tip, clip, and snap are in hand.
+Enclosure is still the portable leftover.
 
 1. Power rails: BAT+ on L1/L3, VCC on L2, C5 on VCC, C6 at Pins 6 and 4.
    - Do not skip C5.
@@ -256,16 +325,18 @@ and Amazon tip / clip / snap are the portable take-home kit.
     - Unknown high-voltage rails
     - Bridged amplifier speaker outputs
 - **Ground Connection Is Not Isolated:**
-  - Battery power isolates the probe's supply from building mains.
-  - The Dr. Meter is earth-referenced through the bench.
-  - Connecting the ground clip electrically joins the probe and the DUT.
-  - A USB or computer source may hum (ground loop).
+  - The 9V pack isolates the probe's supply from building mains.
+  - The pack floats until the ground clip is attached.
+  - Connecting the clip electrically joins the probe and the DUT.
+  - A USB or computer source may still hum (DUT earth vs clip).
   - Verify the target ground with a multimeter before attaching the clip.
-- **OlyMEGA Bench Supply:**
-  - Use the Dr. Meter as 9 V only.
+- **Home 9V Supply:**
+  - One 9V battery only. Do not stack packs or add a bench supply.
   - Do not run the LM386 above 12 V.
+  - Disconnect the battery before changing wiring.
+- **OlyMEGA Bench Supply (space only):**
+  - Use the Dr. Meter as 9 V only.
   - Keep the current limit engaged on first power-up.
-  - Disconnect the supply before changing wiring.
   - Do not parallel a 9V battery with the Dr. Meter.
 - **Input Protection:**
   - Never bypass C2 or R2.
@@ -281,14 +352,12 @@ and Amazon tip / clip / snap are the portable take-home kit.
   - Use gain 200 (lug 1 / white) only when the traced signal is too quiet.
   - Return to gain 20 if the amplifier squeals, oscillates, or becomes noisy.
 - **Electrolytic Capacitor Polarity:**
-  - C1 positive lead faces C1+ / R1 (toward Pin 1).
-  - C1 negative lead faces Pin 8.
-  - C4 positive faces LM386 Pin 5.
-  - C4 negative faces the test speaker.
-  - C5 positive lead faces switched VCC.
-  - C5 negative lead faces system ground.
-  - Optional C7 positive lead faces Pin 7.
-  - Optional C7 negative lead faces system ground.
+  - Stripe on the can is minus. See [⚡ Electrolytic Polarity](#project-5-ecap-polarity).
+  - C2: + to probe / R2. − to yellow POT-IN.
+  - C1: + to white / R1. − to Pin 8.
+  - C4: + to Pin 5. − to speaker +.
+  - C5: + to VCC / L2. − to GND.
+  - C7 (optional): + to Pin 7. − to GND.
 - **Ground Layout:**
   - Use one low-impedance system-ground point for:
     - Probe ground

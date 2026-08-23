@@ -16,10 +16,9 @@ switched AC into the hidden Nook 5V adapter, then into the module.
     - Extra-credit input decoder only.
   - Normally-open momentary pushbutton
     - MH-M18 `KEY` to module ground.
-- **Ordered (Amazon, 21 Aug 2026):**
   - 3M Black Super Weatherstrip Adhesive 03602 (`B000CCFXYY`)
+    - Arrived 22 Aug 2026 with the HDMI cable and probe hardware.
     - 1 fl oz. Rubber-to-metal for the chassis damping pad.
-    - Same cart as the HDMI cable and probe hardware.
 - **Check at OlyMEGA (21 Aug 2026):**
   - *Extra credit only:*
     - High-side P-channel MOSFET or 5V load switch
