@@ -13,7 +13,7 @@ path into the Yamaha.
   - Bulk RCA plugs
   - Shielded interconnect cable
 - **To Be Ordered:**
-  - None if the makerspace bulk bins cover the session.
+  - None.
 
 
 - **Schedule:** Thursday makerspace session.

@@ -19,9 +19,8 @@ cradle_inner_l = 26.0;   // 31 mm bodies overhang ~2.5 mm per end
 wall = 3.0;
 lead_d = 2.5;
 lead_outboard = 3.5;     // hole center from each inner cradle end
-tie_slot_l = 3.5;
-tie_slot_w = 1.5;
-tie_slot_z = 2.2;
+tie_slot_l = 3.5;     // along the wall; fits a ~2.5 mm tie
+tie_strap_d = 1.2;    // underside recess so the strap is not proud
 
 /* [Capacitor inner widths] */
 tw_w = 17.0;             // 3.3 uF, 16 mm body
@@ -31,12 +30,15 @@ m10_w = 11.0;            // 1.0 uF, 10 mm body
 
 /* [Culver 1A-50, calipered] */
 // 8.7 H x 10.25 W x 20.4 L. Both connectors leave one HxW face.
+// Posts: 3.71 mm outer-to-outer; tab thickness is an estimate.
 breaker_l = 20.4;
 breaker_w = 10.25;
 breaker_h = 8.7;
 breaker_pocket_clear = 0.6;
 breaker_pocket_depth = 2.5;
 breaker_lug_well = 7.0;  // through-window past the connector face
+breaker_lug_outer = 3.71;
+breaker_lug_w = 1.2;
 
 /* [Wiring] */
 wire_d = 4.0;            // 16 AWG with insulation
@@ -81,12 +83,10 @@ module mount_holes() {
                 cylinder(h = board_z + 2 * eps, d = mount_d);
 }
 
-// Recessed cradle with side walls, lead holes, and zip-tie slots.
+// Recessed cradle with side walls, lead holes, and through-board tie slots.
 // origin: lower-left of the OUTER wall footprint, z = 0 is the board bottom.
-module cap_station(inner_w, inner_l) {
-    outer_w = inner_w + 2 * wall;
-    outer_l = inner_l + 2 * wall;
-
+// tie_y_off staggers slots on shared mid-range walls.
+module cap_station(inner_w, inner_l, tie_y_off = 0) {
     translate([wall, wall, board_z - cradle_depth])
         cube([inner_w, inner_l, cradle_depth + eps]);
 
@@ -94,26 +94,25 @@ module cap_station(inner_w, inner_l) {
         translate([wall + inner_w / 2, wall + y, -eps])
             cylinder(h = board_z + 2 * eps, d = lead_d);
 
-    for (xside = [wall / 2, wall + inner_w + wall / 2])
-        translate([
-            xside - tie_slot_w / 2,
-            wall + inner_l / 2 - tie_slot_l / 2,
-            board_z - tie_slot_z
-        ])
-            cube([tie_slot_w, tie_slot_l, tie_slot_z + eps]);
+    ty = wall + inner_l / 2 - tie_slot_l / 2 + tie_y_off;
+    for (x = [-eps, wall + inner_w - eps])
+        translate([x, ty, -eps])
+            cube([wall + 2 * eps, tie_slot_l, board_z + 2 * eps]);
+    translate([wall, ty, -eps])
+        cube([inner_w, tie_slot_l, tie_strap_d + eps]);
 }
 
 module mid_triplet() {
     // Shared 3 mm walls: 2.2 | wall | 1.5 | wall | 1.0
-    cap_station(m22_w, cradle_inner_l);
+    cap_station(m22_w, cradle_inner_l, -5.0);
 
     x1 = wall + m22_w;
     translate([x1, 0, 0])
-        cap_station(m15_w, cradle_inner_l);
+        cap_station(m15_w, cradle_inner_l, 0);
 
     x2 = x1 + wall + m15_w;
     translate([x2, 0, 0])
-        cap_station(m10_w, cradle_inner_l);
+        cap_station(m10_w, cradle_inner_l, 5.0);
 }
 
 module breaker_station() {
@@ -164,15 +163,17 @@ module ghost_breaker() {
     color("gray", 0.35)
         translate([bx, by, bz])
             cube([breaker_l, breaker_w, breaker_h]);
-    // Placeholder lugs on the connector face; spacing is unmeasured.
+    // Lugs on the connector face; 3.71 mm outer-to-outer, estimated tab width.
     color("gold", 0.45)
-        for (s = [-1.8, 1.8])
+        for (s = [-1, 1])
             translate([
                 bx + breaker_l,
-                by + breaker_w / 2 + s,
+                by + breaker_w / 2
+                    + s * (breaker_lug_outer - breaker_lug_w) / 2
+                    - breaker_lug_w / 2,
                 bz + breaker_h / 2 - 0.6
             ])
-                cube([5.0, 1.6, 1.2]);
+                cube([5.0, breaker_lug_w, 1.2]);
 }
 
 module board() {

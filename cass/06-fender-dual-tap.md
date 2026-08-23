@@ -17,6 +17,7 @@ Looper.
   - Donor Fender CHANNEL SELECT / CHORUS enclosure
     - Assembly P/N **0029972000**
     - Flipped factory top plate
+      - Stays as the face. No printed overlay.
     - Ribbed aluminum extrusion
   - Two **SLST** momentary switches from the OlyMEGA scrap drawer
   - Two Switchcraft mono TS jacks
@@ -24,8 +25,6 @@ Looper.
 - **To Be Ordered:**
   - SUNLU Easy PA nylon
     - Optional reprint of the end caps.
-  - Printed faceplate overlay
-    - Later cosmetics pass over the bare flipped plate.
 
 
 - **Finished:**
@@ -117,7 +116,9 @@ Looper.
   - Bare metal is the current face.
     - A white sticker went on during the build and was later removed.
   - Two square LED windows from the factory light pipes are unused.
-  - A printed overlay is a later cosmetics pass.
+  - Keep the flipped stock plate.
+    - Optional later: sticker-paper graphic, or black spray and a
+      laser-etched design.
 - **End caps:**
   - Replaced the original nylon (or nylon-like) plastic ends.
   - The ribbed aluminum extrusion is still the factory shell.
@@ -138,5 +139,6 @@ Looper.
 - Reprint the end caps in Easy PA if the trimmed PETG bothers you.
 - Add the end-cap source (OpenSCAD or equivalent) to this repo when it
   is handy.
-- Design a stick-on printed faceplate for the flipped plate.
-  - Cover or fill the unused LED windows if the overlay allows it.
+- Optional face cosmetics on the flipped plate:
+  - Sticker-paper graphic, or black spray then laser-etch.
+  - Cover or fill the unused LED windows if the design allows it.

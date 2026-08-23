@@ -23,6 +23,7 @@ connected.
     - Two beige, one blue.
     - All read `10` on the GDT-11 20kΩ range (that is 10kΩ, not 10Ω).
     - R2 plus two spare.
+  - 1 × 10Ω resistor (R1)
   - 4 × 100nF (`104`) ceramic capacitors
     - C3, C6, two spare.
   - 5 × 10µF / 50V electrolytic capacitors
@@ -38,25 +39,53 @@ connected.
   - 1 × 22µF / 25V electrolytic capacitor (C4 parallel)
   - 1 × 4.7µF / 50V electrolytic capacitor (C4 parallel)
   - 1 × 3.3µF / 50V electrolytic capacitor (C4 parallel)
+  - 1 × A10k audio-taper potentiometer
+    - POT1. Even throw into the LM386; ~10k load on the probed node.
+    - Fine for pedal outputs. Heavy on guitar pickups and fuzz inputs.
   - 1 × ALPHA A1M audio-taper potentiometer
-    - 1MΩ. POT1.
-    - Parallel a 100kΩ across high side to ground (~91kΩ).
-    - That matches the intended A100k load on the LM386.
+    - Spare. Do not use as POT1 without a 100k pad.
   - 1 × 4-pin momentary pushbutton
     - Two independent NO pairs.
-    - Spare for this build if the latching rockers are used.
+    - Spare. Power and gain are on the DPDT rocker.
+  - 1 × DPDT ON-OFF-ON rocker
+    - 6 terminals. 6 A / 125 VAC (fine at 9 V).
+    - One pole: power. One pole: gain 20 / 200.
+    - Center is OFF (no power).
   - 1 × yellow LED
   - 1 × 1W 8Ω speaker
   - 9V batteries
-- **To Be Acquired:**
+    - Usable at home once the snap arrives.
+    - Use the bench supply while at the space.
+- **At OlyMEGA bench (while here):**
+  - Probe tips
+    - Space-owned. Use one into R2.
+    - Do not take it home.
+  - Ground clips and leads
+    - Same job as the Amazon clip.
+    - Clip only to a verified DUT ground.
+  - Dr. Meter DC bench supply
+    - Stand-in for the 9V battery and snap.
+    - Set **9.0 V**.
+    - Current-limit **~200 mA** on first power-up.
+    - Raise to **~500 mA** only if it current-limits when the speaker is loud.
+    - Positive to L1 and L3 (battery +).
+    - Negative to system ground (battery −).
+    - Do not connect a 9V battery at the same time.
+    - Confirm polarity before applying power.
+    - Leave the supply at the bench.
+- **Ordered with Project 2 (awaiting shipment):**
+  - Scrap 16 AWG speaker wire
+    - Optional flying leads for the 1W 8Ω speaker.
+  - Gasketing tape leftover
+    - Optional if the probe speaker is mounted in an enclosure.
+- **Ordered (Amazon, 21 Aug 2026):**
   - Insulated probe tip
   - Ground clip
   - 9V battery snap
-  - 1 × 10Ω / 0.25W resistor (R1)
-  - 1 × 100kΩ resistor (POT1 pad)
-    - Across POT1 high side to ground.
-  - 2 × latching rocker switches
-    - Power, and gain 20 / 200.
+    - Same cart as the Project 1 20 ft HDMI cable.
+    - Take-home portable kit only.
+    - Not required to bring the circuit up at the space.
+- **To Be Acquired:**
   - 1 × 220µF electrolytic capacitor (C4, optional)
     - Single-part substitute for the 220µF parallel bank.
 
@@ -98,17 +127,18 @@ connected.
                                        ▼
                                   [System GND]
 
- [Pin 1] ──> [Latching Gain] ──> [+ C1 10µF −] ──> [Pin 8]
+ [Pin 1] ──> [ON-OFF-ON gain pole] ──> [+ C1 10µF −] ──> [Pin 8]
 --------------------------------------------------------------------------------
 ```
 
 ## LM386 Pin Map
 
 - **Pin 1 — Gain:**
-  - Connect to the positive lead of C1 through the latching gain rocker.
-  - Leave disconnected when the switch is off.
-    - Off: default gain of 20.
-    - On: gain of 200.
+  - Connect to the positive lead of C1 through one pole of the
+    ON-OFF-ON rocker.
+  - Center and the gain-20 throw leave C1 open (gain 20).
+  - The gain-200 throw closes C1 to Pin 8 (gain 200).
+  - Center also kills power, so gain does not matter there.
 - **Pin 2 — Inverting Input:**
   - Connect directly to system ground.
 - **Pin 3 — Non-Inverting Input:**
@@ -123,12 +153,13 @@ connected.
     - Zobel network through C3 and R1 to ground.
 - **Pin 6 — Supply Voltage:**
   - Connect to the switched positive 9V rail.
+  - That rail is the common of the power pole on the ON-OFF-ON rocker.
 - **Pin 7 — Bypass:**
   - Leave open for the minimum-parts build.
   - Optionally connect C7 from Pin 7 to ground to reduce noise.
 - **Pin 8 — Gain:**
   - Connect to the negative lead of C1.
-  - Leave disconnected when the gain switch is off.
+  - C1 reaches Pin 8 only on the gain-200 throw.
 
 ## Peripheral Node Map
 
@@ -145,8 +176,22 @@ connected.
   - Connect the POT1 high side to C2.
   - Connect the POT1 center wiper to LM386 Pin 3.
   - Connect the POT1 low side to system ground.
-  - POT1 is the ALPHA A1M (1MΩ audio taper).
-  - Parallel 100kΩ from the POT1 high side to ground.
+  - POT1 is the A10k audio taper.
+  - Do not pad it with 100kΩ.
+- **ON-OFF-ON Rocker (DPDT):**
+  - Pins: L1 L2 L3 facing the labeled side; R1 R2 R3 opposite.
+  - Commons are L2 and R2. Left never shorts to Right.
+  - Paddle 1: L2–L3 and R2–R3.
+  - Paddle 2 (center): all open. Power off.
+  - Paddle 3: L2–L1 and R2–R1.
+  - *Power pole (Left):*
+    - L1 and L3 to battery positive.
+    - L2 to the switched 9V rail (Pin 6, C5+, C6).
+  - *Gain pole (Right):*
+    - R2 to C1 positive (toward Pin 1).
+    - R3: no connection (paddle 1 = gain 20).
+    - R1 to C1 negative and Pin 8 (paddle 3 = gain 200).
+  - Swap R1/R3 if you want gain 200 on paddle 1 instead.
 - **Probe Ground:**
   - Connect the ground clip to the circuit's system ground.
   - Do not clip it to an unknown node before verifying that node with a
@@ -169,15 +214,17 @@ connected.
 
 ## Assembly Sequence
 
-1. Build the 9V power rails, switch, C5, and C6.
+1. Build the 9V power rails, ON-OFF-ON power pole, C5, and C6.
+   - At the space: feed L1/L3 from the Dr. Meter (+), ground from its −.
+   - At home: feed L1/L3 from the 9V snap once it arrives.
 2. Install the LM386 and connect Pins 2, 4, and 6.
 3. Build the C4 speaker-output branch.
    - Parallel 100 + 47 + 33 + 22 + 10 + 4.7 + 3.3µF (220µF).
    - Keep the other 100µF for C5.
 4. Add the C3/R1 Zobel branch.
 5. Build the volume-control and probe-input path.
-6. Test at the default gain of 20 with the gain rocker off.
-7. Add the switchable C1 gain branch only after the base circuit is stable.
+6. Test at gain 20 (power ON, C1 open).
+7. Add the C1 gain pole only after the base circuit is stable.
 8. Add optional Pin 7 bypass capacitor C7 if residual noise is excessive.
 9. Transfer the verified circuit into an insulated portable enclosure.
 
@@ -193,9 +240,15 @@ connected.
     - Bridged amplifier speaker outputs
 - **Ground Connection Is Not Isolated:**
   - Battery power isolates the probe's supply from building mains.
+  - The Dr. Meter is earth-referenced through the bench.
   - Connecting the ground clip electrically joins the probe and the device
     under test.
   - Verify the target ground with a multimeter before attaching the clip.
+- **OlyMEGA Bench Supply:**
+  - Use the Dr. Meter as 9 V only.
+  - Do not run the LM386 above 12 V.
+  - Keep the current limit engaged on first power-up.
+  - Disconnect the supply before changing wiring.
 - **Input Protection:**
   - Never bypass C2 or R2.
   - Measure unknown nodes for DC voltage before probing them.

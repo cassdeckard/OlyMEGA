@@ -21,11 +21,12 @@ metalized film networks.
       - Round terminal cutout: 52 mm
       - Mounting screws: 43.85 mm × 43.85 mm square
     - 18 AWG solid-core copper for onboard crossover nets
-- **To Be Ordered:**
-  - *Crossover Boards:*
-    - PETG filament for two 3.5" × 4.5" printed boards
-    - OpenSCAD source:
-      [`sanyo-crossover/ss540_crossover_board.scad`](sanyo-crossover/ss540_crossover_board.scad)
+    - PETG filament at OlyMEGA (several options)
+      - Two 3.5" × 4.5" × 6 mm boards.
+      - OpenSCAD source:
+        [`sanyo-crossover/ss540_crossover_board.scad`](sanyo-crossover/ss540_crossover_board.scad)
+- **Ordered (awaiting shipment):**
+  - No tracking yet.
   - *Tweeter Capacitors:*
     - 2 × 3.3µF Dayton Audio PMPC film capacitors
   - *Mid-Range Capacitors:*
@@ -35,6 +36,7 @@ metalized film networks.
   - *Acoustic Damping and Sealing:*
     - 1 lb Acousta-Fill nylon polyfill
     - 1/8" x 3/8" speaker gasketing tape
+      - Enough leftover for other cabinet and anti-rattle work.
   - *Cabinet Hardware:*
     - 2 × Parts Express 260-283 2-15/16" gold binding-post cups
       - 2-15/16" (75 mm) is the flange, not the cabinet hole.
@@ -42,12 +44,14 @@ metalized film networks.
       - Factory hole is 52 mm, so the barrel fits without enlarging.
       - Confirm the cup's four screw holes land on the 43.85 mm square.
   - *Driver Repair Supplies:*
-    - Acid-free PVA (Elmer's Glue-All or equivalent)
+    - Elmer's Glue-All (acid-free PVA)
       - Reattach the left mid-range driver's painted paper dust cap.
+      - Leftover is usable on paper and wood in other projects.
+      - Not a rubber-to-metal adhesive.
   - *Internal Wiring:*
     - Audtek 16 AWG oxygen-free copper speaker wire
-      - Flying leads only: binding posts, drivers, board pass-throughs.
-      - Leftover 16 AWG lamp cord from Project 1 is an acceptable substitute.
+      - Flying leads: binding posts, drivers, board pass-throughs.
+      - Enough leftover for other speaker and hookup runs.
 
 
 <a id="project-2-roadmap"></a>
@@ -177,15 +181,24 @@ underside. Flying leads through the 4 mm holes are 16 AWG stranded.
   - Depth 1.5 mm.
   - Inner widths 17 / 15 / 12 / 11 mm (1 mm over each body).
   - 2.5 mm lead holes, 3.5 mm outboard of each cradle end.
-  - 3.5 mm × 1.5 mm zip-tie slots in the side walls.
+  - Zip-tie slots through the side walls:
+    - 3.5 mm along the wall.
+    - Full 3 mm wall thickness.
+    - Open through the board.
+    - 1.2 mm underside recess between each pair so the strap sits in.
+    - Mid-range slots are staggered so shared walls do not share a hole.
+    - Buckle on top of the cap; only the strap goes underneath.
   - 2.5 mm holes are for capacitor leads only.
 - **Culver 1A-50 pocket (calipered):**
   - Body **8.7 mm H × 10.25 mm W × 20.4 mm L**.
   - Both connectors leave one **H × W** face.
+  - Posts:
+    - Outer-to-outer across both tabs: **3.71 mm**.
+    - Individual tab thickness is not calipered yet.
   - Pocket adds 0.6 mm clearance, 2.5 mm deep.
   - Length across the board; connector face toward the wiring spine.
   - 7 mm through-window at that face for soldering, not end-to-end lug holes.
-  - Ghost lugs in the `.scad` are placeholders; spacing is unmeasured.
+  - Ghost lugs in the `.scad` use the 3.71 mm outer span.
   - It is **1 A**, not 14 A or 1.4 A.
 - **Underside wiring:**
   - 2.2 mm channel along the right spine, with crossbars at the lead rows.

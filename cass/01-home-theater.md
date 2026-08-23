@@ -19,12 +19,16 @@ pipeline, and adds stealth wireless streaming functionality.
   - 16 AWG Pure Copper (OFC) lamp cord
   - 5V Nook AC adapter block
   - KabelDirekt Toslink Optical Cable
-  - MH-M18 Lossless Bluetooth Breakout Board
-- **Delayed in Transit:**
   - KabelDirekt HDMI 2.0 Audio Extractor
-- **Pending Inspection:**
-  - 6-to-8 foot HDMI Cable
-    - Audit physical storage drawers to verify whether a spare is available.
+  - MH-M18 Lossless Bluetooth Breakout Board
+- **Ordered with Project 2 (awaiting shipment):**
+  - Audtek 16 AWG OFC speaker wire
+    - Extra stock beyond the lamp cord already in hand.
+    - Usable for Sanyo monitor runs if the lamp cord is short.
+- **Ordered (Amazon, 21 Aug 2026):**
+  - Highwings 20 ft HDMI cable (`B095W9T9QQ`)
+    - Extractor video out to projector.
+    - Marketed as 48 Gbps / HDMI 2.1; this path is HDMI 2.0 18 Gbps.
 
 
 <a id="project-1-hdmi"></a>
@@ -45,7 +49,7 @@ pipeline, and adds stealth wireless streaming functionality.
                 Video only                              Audio only
                     │                                       │
                     ▼                                       ▼
-          [6–8 ft HDMI Cable]                  [KabelDirekt Toslink]
+          [20 ft HDMI Cable]                   [KabelDirekt Toslink]
                     │                                       │
                     ▼                                       ▼
        [Projector HDMI Input]                 [Yamaha HTR-5450 Receiver]

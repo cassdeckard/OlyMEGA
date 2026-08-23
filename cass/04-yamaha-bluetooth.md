@@ -14,14 +14,23 @@ switched AC into the hidden Nook 5V adapter, then into the module.
   - 5V Nook AC adapter block
   - SN74HC138N from the IC inventory
     - Extra-credit input decoder only.
-- **To Be Ordered:**
   - Normally-open momentary pushbutton
     - MH-M18 `KEY` to module ground.
-  - 3M black weatherstrip adhesive or equivalent
-    - Reattach the loose chassis damping pad.
+- **Ordered (Amazon, 21 Aug 2026):**
+  - 3M Black Super Weatherstrip Adhesive 03602 (`B000CCFXYY`)
+    - 1 fl oz. Rubber-to-metal for the chassis damping pad.
+    - Same cart as the HDMI cable and probe hardware.
+- **Check at OlyMEGA (21 Aug 2026):**
   - *Extra credit only:*
     - High-side P-channel MOSFET or 5V load switch
     - Switches Nook +5V to MH-M18 `VCC`.
+    - Not in `INVENTORY.md`.
+      - ULN2803A, L293D, SN754410, and TPIC6B595 are low-side
+        or H-bridge parts, not this switch.
+- **Ordered with Project 2 (awaiting shipment):**
+  - Speaker gasketing tape leftover
+    - Optional anti-rattle under the Nook wart or MH-M18
+      if they buzz on the chassis.
 - **Not required:**
   - B0505S DC-DC isolator
     - Dropped. The Nook wart already isolates 5V from mains.
@@ -116,6 +125,8 @@ switched AC into the hidden Nook 5V adapter, then into the module.
       lock.
 - **Chassis Damping-Pad Repair:**
   - Reattach the loose rubber cushioning pad while the receiver is open.
+  - The crease is on the **side** of the pad, not the cover-bearing face.
+    - Thickness still matches the intact pad. Reuse both originals.
   - *Placement:*
     - Mirror the position and orientation of the intact pad on the opposite
       side.
@@ -132,6 +143,13 @@ switched AC into the hidden Nook 5V adapter, then into the module.
     - Apply a thin layer of flexible rubber-to-metal adhesive.
     - Prefer **3M black weatherstrip adhesive** or an equivalent
       heat-tolerant flexible contact adhesive.
+    - On-hand equivalents that are acceptable:
+      - Permatex black or yellow weatherstrip adhesive
+      - 3M yellow Super Weatherstrip Adhesive (same job, not black)
+      - Original Weldwood / DAP contact cement
+      - Barge cement (shoe/rubber contact cement)
+      - 3M VHB or automotive trim tape if the pad is thin and flat
+      - E6000 or Shoe Goo as a last resort (slow cure, keep it thin)
     - Tape or clamp the pad in place without crushing it.
     - Allow the adhesive to cure fully before reinstalling the cover.
   - *Constraints:*
