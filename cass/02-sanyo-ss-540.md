@@ -17,41 +17,77 @@ metalized film networks.
   - Sanyo SS-540 speaker pair
     - Two cabinets
     - Factory woofers, mid-range drivers, and tweeters
+      - All male Quick Connect tabs are **0.205" (5.2 mm)**.
     - Factory wiring harnesses and terminal plates
+      - Original cups also used 0.205" male Quick Connect tabs.
+      - Factory females are spare. New 0.205" females are in hand.
+      - Factory layout was distributed, not a central board:
+        - Junction at the woofer.
+        - Short mid pigtail with the 4.7µF, only long enough woofer-to-mid.
+        - Short tweeter pigtail with the 3.3µF, only long enough
+          woofer-to-tweeter.
+        - Those runs do not reach a central board. Use new 16 AWG leads.
       - Round terminal cutout: 52 mm
       - Mounting screws: 43.85 mm × 43.85 mm square
     - 18 AWG solid-core copper for onboard crossover nets
     - PETG filament at OlyMEGA (several options)
-      - Two 3.5" × 4.5" × 6 mm boards.
-      - OpenSCAD source:
+      - Working board is Fusion 360, printed in PETG.
+      - OpenSCAD hub is leftover. Do not print it:
         [`sanyo-crossover/ss540_crossover_board.scad`](sanyo-crossover/ss540_crossover_board.scad)
-- **Ordered (awaiting shipment):**
-  - No tracking yet.
   - *Tweeter Capacitors:*
     - 2 × 3.3µF Dayton Audio PMPC film capacitors
+    - Arrived 26 Aug 2026 (Audio Express).
   - *Mid-Range Capacitors:*
     - 2 × 1.0µF film capacitors
     - 2 × 1.5µF film capacitors
     - 2 × 2.2µF film capacitors
+    - Arrived 26 Aug 2026 (Audio Express).
   - *Acoustic Damping and Sealing:*
     - 1 lb Acousta-Fill nylon polyfill
     - 1/8" x 3/8" speaker gasketing tape
       - Enough leftover for other cabinet and anti-rattle work.
+    - Arrived 26 Aug 2026 (Audio Express).
   - *Cabinet Hardware:*
     - 2 × Parts Express 260-283 2-15/16" gold binding-post cups
+      - Arrived 26 Aug 2026 (Audio Express).
       - 2-15/16" (75 mm) is the flange, not the cabinet hole.
       - Specified barrel cutout is 2" (50.8 mm).
       - Factory hole is 52 mm, so the barrel fits without enlarging.
       - Confirm the cup's four screw holes land on the 43.85 mm square.
+      - Rear tabs accept **0.205"** female disconnects, not 1/4".
+      - Front posts accept banana, dual banana, spade, or bare wire to 8 AWG.
+      - Dual bananas for the Yamaha runs are in. Specs live under Project 1.
+  - *Internal Wiring:*
+    - Audtek 16 AWG oxygen-free copper speaker wire
+      - Arrived 26 Aug 2026 (Audio Express).
+      - Flying leads: cups, drivers, and the Fusion board.
+      - Enough leftover for cabinet-to-receiver runs.
+    - 0.205" (5.2 mm) 16-14 AWG female Quick Connects
+      - Purchased for every driver and cup tab.
+      - Do not substitute Ace 1/4" (0.250") females. They sit loose.
+    - 16-14 AWG butt connectors
+      - In hand. Hidden splices only.
+      - Not a board terminal. Cut to disconnect.
   - *Driver Repair Supplies:*
     - Elmer's Glue-All (acid-free PVA)
+      - Arrived from Amazon a few days before 26 Aug 2026.
       - Reattach the left mid-range driver's painted paper dust cap.
       - Leftover is usable on paper and wood in other projects.
       - Not a rubber-to-metal adhesive.
-  - *Internal Wiring:*
-    - Audtek 16 AWG oxygen-free copper speaker wire
-      - Flying leads: binding posts, drivers, board pass-throughs.
-      - Enough leftover for other speaker and hookup runs.
+- **Ace pickup:**
+  - *Board I/O (solderless, 6 poles per board, 12 total):*
+    - 2 × Gardner Bender **GTB-406** 6-pole dual-row terminal blocks.
+      - Ace item **3427747**, about $9.99 each.
+      - [Ace listing](https://www.acehardware.com/departments/lighting-and-electrical/boxes-fittings-and-conduit/lugs/3427747)
+      - 22–10 AWG. Covers 18 AWG buses and 16 AWG flying leads.
+      - 30 A / 600 V. Speaker current is nowhere near that.
+      - Do not cut. Molded barrier, not a Euro chocolate block.
+      - Skip the 8-pole **GTB-408** (Ace 3427622). Extra poles, 5.50" long.
+    - Skip panel bananas on the board.
+      - Built for front-panel patching, not a vibrating cabinet.
+      - No spare of 12 mating plugs.
+    - Skip 0.205" male tabs on the board unless ordered as that size.
+      - Ace males are 1/4". They will not mate the 0.205" females.
 
 
 <a id="project-2-roadmap"></a>
@@ -78,15 +114,18 @@ metalized film networks.
     - Rubber cement was for a metal-to-paper joint.
     - CA dries brittle and can tick.
 - **Crossover Filter Networks:**
-  - Rebuild the high-pass stages on two printed PETG boards.
-  - See [Printed Crossover Board](#project-2-crossover-board).
+  - Rebuild the high-pass stages on two PETG boards from Fusion 360.
+  - See [Crossover Board](#project-2-crossover-board).
+  - Factory pigtails stay in the parts bin. They do not reach the board.
   - *Tweeter Path:*
     - Replace the original capacitor one-for-one.
     - Use one **3.3µF** Dayton Audio PMPC film capacitor.
+    - Dry-fit first. The 31 mm film body is larger than the old electrolytic.
   - *Mid-Range Path:*
     - A single 4.7µF film capacitor is unavailable.
     - Reconstruct the value with a parallel triplet:
       - **1.0µF + 1.5µF + 2.2µF = 4.7µF**
+    - Triplet footprint is about **50 mm × 31 mm**.
 - **Culver 1A-50 Circuit-Breaker Assessment:**
   - Test each factory automatic-reset thermal breaker before reusing it.
   - *Isolate:*
@@ -132,13 +171,15 @@ metalized film networks.
       - Do not enlarge the 52 mm factory hole.
       - The 2" barrel is about 1.2 mm undersize; the gasket fills the gap.
 - **Internal Rewiring:**
-  - Redo all structural point-to-point connections.
-  - *On the PETG board:*
-    - Use on-hand 18 AWG solid-core copper in the underside channels.
-    - Solid sits flat and does not flex once the board is mounted.
-  - *Off the board:*
-    - Use 16 AWG stranded to the binding posts and all three drivers.
-    - Do not run solid core to the woofer.
+  - New Audtek 16 AWG flying leads to the Fusion board.
+  - *Hardware end (cups and drivers):*
+    - 0.205" females on every male tab.
+    - Factory females are spare.
+  - *Board end:*
+    - 6-pole screw strip. No solder on the flying leads.
+    - See [Crossover Board](#project-2-crossover-board).
+  - Culver 1A-50 stays in series on IN+. Test it before reuse.
+  - Do not pull 18 AWG solid out to a driver. Solid is onboard buses only.
 
 ```unset
 --------------------------------------------------------------------------------
@@ -157,59 +198,48 @@ metalized film networks.
 
 <a id="project-2-crossover-board"></a>
 
-## 🖨️ Printed Crossover Board
+## 🖨️ Crossover Board
 
 
-Replace the factory fiber board with a PETG fixture. The plastic is not a
-conductor. Onboard nets are 18 AWG solid copper or capacitor leads on the
-underside. Flying leads through the 4 mm holes are 16 AWG stranded.
+Working design is Fusion 360, printed in PETG. The OpenSCAD hub is leftover
+and is not the board to print.
 
-- **Source file:**
-  - [`sanyo-crossover/ss540_crossover_board.scad`](sanyo-crossover/ss540_crossover_board.scad)
-  - Print **two** copies on the Bambu P1S in PETG.
-- **Board:**
-  - 89 mm × 114 mm (3.5" × 4.5").
-  - **6 mm** thick.
-  - 4.5 mm cannot hold 1.5 mm cradles and a 2.2 mm underside channel.
-  - Four 4.5 mm corner holes, 6 mm from each edge, for #8 wood screws.
-- **Layout, input edge to output edge:**
-  - Culver 1A-50 pocket.
-  - Tweeter 3.3µF cradle.
-  - Mid-range triplet: 2.2µF, 1.5µF, 1.0µF, with shared 3 mm walls.
-- **Capacitor cradles:**
-  - Inner length **26 mm** so 31 mm bodies can bend into the lead holes.
-  - Depth 1.5 mm.
-  - Inner widths 17 / 15 / 12 / 11 mm (1 mm over each body).
-  - 2.5 mm lead holes, 3.5 mm outboard of each cradle end.
-  - Zip-tie slots through the side walls:
-    - 3.5 mm along the wall.
-    - Full 3 mm wall thickness.
-    - Open through the board.
-    - 1.2 mm underside recess between each pair so the strap sits in.
-    - Mid-range slots are staggered so shared walls do not share a hole.
-    - Buckle on top of the cap; only the strap goes underneath.
-  - 2.5 mm holes are for capacitor leads only.
-- **Culver 1A-50 pocket (calipered):**
-  - Body **8.7 mm H × 10.25 mm W × 20.4 mm L**.
-  - Both connectors leave one **H × W** face.
-  - Posts:
-    - Outer-to-outer across both tabs: **3.71 mm**.
-    - Individual tab thickness is not calipered yet.
-  - Pocket adds 0.6 mm clearance, 2.5 mm deep.
-  - Length across the board; connector face toward the wiring spine.
-  - 7 mm through-window at that face for soldering, not end-to-end lug holes.
-  - Ghost lugs in the `.scad` use the 3.71 mm outer span.
-  - It is **1 A**, not 14 A or 1.4 A.
-- **Underside wiring:**
-  - 2.2 mm channel along the right spine, with crossbars at the lead rows.
-  - Lay 18 AWG solid in that channel as the copper buses.
-  - Solder capacitor leads and Culver lugs to those buses.
-  - 4 mm pass-throughs are for 16 AWG stranded input and driver leads.
-  - Splice stranded to solid on the underside; do not pull solid out to a
-    driver.
-- **Bambu Studio:**
-  - 4–5 wall loops.
-  - 30–40% gyroid or grid infill.
-  - 4–5 top and bottom layers.
-  - 0.2 mm layer height.
-  - Dry PETG before printing.
+- **CAD:**
+  - Fusion 360 is the source of truth for outline, cradles, and I/O.
+  - One board edge is already **111 mm**, matching the GTB-406 length.
+  - Leftover OpenSCAD (do not print):
+    [`sanyo-crossover/ss540_crossover_board.scad`](sanyo-crossover/ss540_crossover_board.scad)
+- **Onboard nets:**
+  - 18 AWG solid copper for buses.
+  - Solder capacitor leads and the Culver to those buses.
+  - That is a one-time assembly joint, not a service connection.
+- **Flying-lead I/O:**
+  - One GTB-406 per board, along the 111 mm edge.
+  - Dual row: 18 AWG bus under one screw, 16 AWG lead under the other.
+  - Cap leads still solder. "Solderless" means the leads unplug.
+- **GTB-406 footprint (GB datasheet, 6-pole):**
+  - Overall length **4.37" (111 mm)**. Flush with that Fusion edge.
+  - Mounting-hole spacing **3.94" (100 mm)**. About 5.5 mm in from each end.
+  - Width **1.33" (34 mm)**. Reserve that band on the plate.
+  - Pole pitch **0.562" (14.3 mm)**.
+  - Mount with **#10** screws. Holes **0.21" (5.3 mm)**.
+  - Clamp screws are #10-32. Optional #10 spades on the flying leads.
+- **Pole map (one board):**
+  - **IN+** — cup positive
+  - **IN−** — cup negative
+  - **W+** — woofer positive
+  - **M+** — mid positive
+  - **T+** — tweeter positive
+  - **GND** — common return
+- **Shared GND:**
+  - One board pole, not three.
+  - 3-into-1 return harness to the three driver negatives.
+    - One 16 AWG from GND to a 3-way join, then three short tails.
+  - Do not stuff three stranded returns under one GTB screw.
+  - Do not cut a GTB-406 down to a 3-pole snippet.
+- **Hardware end of those same leads:**
+  - 0.205" females on the 260-283 cups and all six drivers.
+- **Do not use as board terminals:**
+  - Panel bananas. Need 12 mating plugs; overkill inside the cabinet.
+  - 16-14 AWG butt connectors. Splice only; cut to service a driver.
+  - Ace 1/4" male Quick Connects. Will not mate the 0.205" females.

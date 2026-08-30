@@ -83,7 +83,7 @@ connected.
     - Dr. Meter: **9.0 V**, current-limit **~200 mA** first power-up.
     - Do not connect a 9V battery at the same time as the Dr. Meter.
     - Leave space tools on the bench.
-- **Ordered with Project 2 (awaiting shipment):**
+- **Leftover from Project 2 (arrived 26 Aug 2026):**
   - Scrap 16 AWG speaker wire
     - Optional flying leads for the 1W 8Ω speaker.
   - Gasketing tape leftover

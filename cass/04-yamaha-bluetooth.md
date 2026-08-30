@@ -19,6 +19,10 @@ switched AC into the hidden Nook 5V adapter, then into the module.
   - 3M Black Super Weatherstrip Adhesive 03602 (`B000CCFXYY`)
     - Arrived 22 Aug 2026 with the HDMI cable and probe hardware.
     - 1 fl oz. Rubber-to-metal for the chassis damping pad.
+  - Speaker gasketing tape leftover
+    - Arrived 26 Aug 2026 with the Project 2 Audio Express order.
+    - Optional anti-rattle under the Nook wart or MH-M18
+      if they buzz on the chassis.
 - **Check at OlyMEGA (21 Aug 2026):**
   - *Extra credit only:*
     - High-side P-channel MOSFET or 5V load switch
@@ -26,10 +30,6 @@ switched AC into the hidden Nook 5V adapter, then into the module.
     - Not in `INVENTORY.md`.
       - ULN2803A, L293D, SN754410, and TPIC6B595 are low-side
         or H-bridge parts, not this switch.
-- **Ordered with Project 2 (awaiting shipment):**
-  - Speaker gasketing tape leftover
-    - Optional anti-rattle under the Nook wart or MH-M18
-      if they buzz on the chassis.
 - **Not required:**
   - B0505S DC-DC isolator
     - Dropped. The Nook wart already isolates 5V from mains.

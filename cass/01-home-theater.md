@@ -25,10 +25,21 @@ pipeline, and adds stealth wireless streaming functionality.
     - Arrived (Amazon, ordered 21 Aug 2026).
     - Extractor video out to projector.
     - Marketed as 48 Gbps / HDMI 2.1; this path is HDMI 2.0 18 Gbps.
-- **Ordered with Project 2 (awaiting shipment):**
-  - Audtek 16 AWG OFC speaker wire
+  - Audtek 16 AWG OFC speaker wire leftover
+    - Arrived 26 Aug 2026 with the Project 2 Audio Express order.
     - Extra stock beyond the lamp cord already in hand.
     - Usable for Sanyo monitor runs if the lamp cord is short.
+  - *Banana plugs for Sanyo monitor runs:*
+    - 4 × dual banana plugs, **0.75" (19 mm)** spacing.
+    - Arrived 29 Aug 2026.
+    - One dual on each end of each speaker cable.
+    - 16 AWG lamp cord or leftover Audtek.
+    - Screw-clamp barrels that accept 16 AWG.
+      - Fold the conductor once if the barrel is sized for 12 AWG.
+    - Yamaha HTR-5450 MAIN posts accept bananas on US models.
+      - Pop the plastic sealing caps in the knob centers first.
+      - Tighten the knob, then insert the banana.
+    - Project 2 260-283 cups also accept dual bananas.
 
 
 <a id="project-1-hdmi"></a>

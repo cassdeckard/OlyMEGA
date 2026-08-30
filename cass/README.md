@@ -12,7 +12,7 @@ mod, bench signal probe, and a completed Fender dual-tap footswitch.
 2. [Sanyo SS-540 Speaker Modification](02-sanyo-ss-540.md)
     - [📦 Supply Chain & Inventory Status](02-sanyo-ss-540.md#project-2-inventory)
     - [📐 Project State & Architectural Roadmap](02-sanyo-ss-540.md#project-2-roadmap)
-    - [🖨️ Printed Crossover Board](02-sanyo-ss-540.md#project-2-crossover-board)
+    - [🖨️ Crossover Board](02-sanyo-ss-540.md#project-2-crossover-board)
 3. [Custom Interconnect Cables Build](03-interconnect-cables.md)
     - [📦 Supply Chain & Inventory Status](03-interconnect-cables.md#project-3-inventory)
 4. [Stealth Internal Bluetooth Modification](04-yamaha-bluetooth.md)
